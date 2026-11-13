@@ -2,41 +2,13 @@
 
 A self-contained, turn-based dogfighting game for a desktop or mobile browser.
 
-Canvas Aces is in development. The game is single-player against the computer. Two-device multiplayer is not implemented.
+Canvas Aces is in development. The HTML game remains playable for Chrome testing and casual play while an iPhone version is explored. The game currently supports single-player play against the computer; two-device multiplayer is not implemented.
 
-## Play in Chrome\n\nOpen `index.html` in Chrome for local testing. No installation or server is needed for the current offline game.\n\nFor an online testing link, enable GitHub Pages in the repository settings and publish the `main` branch from the root folder.\n\n## Play on a PC
+## Play in Chrome
 
-1. Extract the ZIP.
-2. Double-click `index.html` and open it in Edge, Chrome, Firefox, or Safari.
-3. Click **How to play** for the quick guide, or **Practice flight** for three guided exercises.
+Download the repository files and open `index.html` in Chrome. No installation or server is needed for local play. Browser storage availability determines whether a sortie can be saved; the game displays its save status.
 
-No installation, build step, account, or internet connection is required to play the downloaded game. Browser storage availability determines whether a sortie can be saved; the game displays its save status.
-
-## Upload to GitHub
-
-1. Extract this ZIP first. Upload the extracted files, not the ZIP itself.
-2. Create or open the GitHub repository you want to use.
-3. Choose **Add file → Upload files**. A new empty repository may instead show an **uploading an existing file** link.
-4. Drag the extracted contents into the upload area. Keep `index.html` and `README.md` at the repository root, with `tests/` alongside them.
-5. Commit the upload. A suitable message is `Release Canvas Aces version 1`.
-
-You can also place these files in a local repository and publish it using GitHub Desktop or Git.
-
-## Optional: publish with GitHub Pages
-
-After committing the files:
-
-1. Open the repository's **Settings → Pages**.
-2. Under **Build and deployment**, choose **Deploy from a branch**.
-3. Select the branch containing these files, normally `main`, and the **/(root)** folder.
-4. Save, then use the site URL shown by GitHub when deployment completes.
-
-Open that hosted URL in iPhone Safari to test the mobile layout. Uploading these files alone does not enable Pages. No domain name or build service is needed for this static game.
-
-GitHub instructions:
-
-- [Uploading existing files](https://docs.github.com/en/repositories/working-with-files/managing-files/adding-a-file-to-a-repository)
-- [Configuring GitHub Pages publishing](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)
+For a shareable online testing link, enable GitHub Pages in **Settings → Pages**, choose **Deploy from a branch**, and select the `main` branch and `/(root)` folder. GitHub will show the site URL when publishing completes.
 
 ## Included features
 
