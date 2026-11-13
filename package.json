@@ -2,7 +2,7 @@
   "name": "canvas-aces",
   "version": "0.7.0",
   "private": true,
-  "description": "Canvas Aces browser game, version 1",
+  "description": "Canvas Aces browser game in development",
   "scripts": {
     "test": "node tests/check-game.cjs"
   },
