@@ -1,6 +1,8 @@
-# Canvas Aces
+# Rotary Dogfight
 
 The guided learning flight is **Intro**. **Easy** is a separate, reactive duel with the same three controls. The HTML build is the quick-to-test and fun-to-play version; the rules engine stays platform independent so an iPhone app remains a future option.
+
+This is an independent tribute to Alfred Leonardi and Douglas Kaufmann, the creators of Ace of Aces, and Nova Game Designs, the publisher behind the series. It is not affiliated with or endorsed by them.
 
 ## Play
 
