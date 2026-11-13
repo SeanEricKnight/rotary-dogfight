@@ -1,10 +1,10 @@
-# Canvas Aces — Version 1
+# Canvas Aces
 
 A self-contained, turn-based dogfighting game for a desktop or mobile browser.
 
-This is the first version of Canvas Aces. The game is single-player against the computer. Two-device multiplayer is not implemented.
+Canvas Aces is in development. The game is single-player against the computer. Two-device multiplayer is not implemented.
 
-## Play on a PC
+## Play in Chrome\n\nOpen `index.html` in Chrome for local testing. No installation or server is needed for the current offline game.\n\nFor an online testing link, enable GitHub Pages in the repository settings and publish the `main` branch from the root folder.\n\n## Play on a PC
 
 1. Extract the ZIP.
 2. Double-click `index.html` and open it in Edge, Chrome, Firefox, or Safari.
@@ -70,7 +70,7 @@ Using any valid cheat marks that sortie as assisted, including after saving and 
 | `index.html` | Complete game: HTML, CSS, JavaScript, and generated vector graphics |
 | `tests/check-game.cjs` | Automated game-logic checks using Node.js built-ins |
 | `package.json` | Provides the optional `npm test` command; no package dependencies |
-| `BASELINE.md` | Snapshot identity, original filename, and validation limits |
+| `BASELINE.md` | Source snapshot and validation notes |
 | `SHA256SUMS` | Checksums of the packaged files |
 
 ## Optional developer checks
@@ -95,4 +95,4 @@ Previous checks covered 225 regular-duel simulations and 72 short-objective simu
 
 Canvas images were inspected during development. Full browser and physical iPhone testing remains outstanding. Save data belongs to the browser origin: opening a local file and opening a hosted site may use different saves.
 
-No Fly Casual or Plane Tactics code, assets, archives, or dependencies are included. Those projects were reviewed as possible references for later development. Their proposed integrations have not been applied to version 1.
+No Fly Casual or Plane Tactics code, assets, archives, or dependencies are included. Those projects were reviewed as possible references for later development. Their proposed integrations have not been applied to the current game.
