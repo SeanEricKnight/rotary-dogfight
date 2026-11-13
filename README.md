@@ -1,6 +1,6 @@
 # Canvas Aces
 
-The guided learning flight is now **Intro**. **Easy** is a separate, reactive duel with the same three controls. The browser/native platform choice remains open.
+The guided learning flight is **Intro**. **Easy** is a separate, reactive duel with the same three controls. The HTML build is the quick-to-test and fun-to-play version; the rules engine stays platform independent so an iPhone app remains a future option.
 
 ## Play
 
@@ -25,11 +25,15 @@ In a duel, both planes down together, 40 turns, or both out of ammunition ends i
 
 ## Advanced modes
 
-Normal and Hard retain aircraft selection, momentum, energy, altitude, optional variable gunnery, planning previews, and the flight recorder. Select a maneuver, then press the gold Fly button. Intro and Easy each use one tap instead.
+Normal and Hard retain aircraft selection, momentum, energy, altitude, optional variable gunnery, planning previews, and the flight recorder. New flights open on the tactical map, which shows your selected path, following-turn options, and the rival's current firing direction while keeping its committed move hidden. Select a maneuver, then press the gold Fly button. Intro and Easy each use one tap instead.
+
+**Practice flight** is now a five-step flight school: line up a shot, match altitude, recover energy, lead a turning target, and escape a rival's firing line. Each is a short, replayable exercise that does not affect the live sortie or career record.
+
+**Break contact** starts with a pursuer behind you. Reach the marked exit lane on the tactical map while opening at least 250 m of separation. Shooting down the rival still wins. The previous eight-turn survival objective is preserved for old saved flights and recordings.
 
 ## Previous saves
 
-The current build uses a new browser save slot and preserves older slots. In Normal or Hard, open **Choose your next flight** and use **Resume a previous-version save** to restore the most recent older slot available. The previous learning mode resumes as Intro and keeps its original rules and recording. Start a new Easy flight for the reactive duel.
+The current build uses a new browser save slot and preserves older slots. In Normal or Hard, open **Choose your next flight** and use **Resume a previous-version save** to restore a v10, v9, or v4 save. Previous flights keep their original rules and recordings. Start a new flight to use the current objectives.
 
 Browser save/origin limits still apply. A local file and a hosted site may have different saved data.
 
@@ -49,7 +53,7 @@ Use [PLAYTEST_GUIDE.md](PLAYTEST_GUIDE.md) for a consistent first round of human
 
 With Node.js 20 or newer, run `npm test`. No `npm install` is required. The offline HTML and standalone `flight-core.cjs` engine are kept in sync with `npm run sync:core`.
 
-Tests cover the rules engine, Normal/Hard opponents, recordings, saves, migration, and practice. Intro recovered to a win in 60/60 cases after zero to four deliberately wrong opening choices, within 15 turns.
+Tests cover the rules engine, Normal/Hard opponents, recordings, saves, migration, flight-school goals, and the marked exit objective. Intro recovered to a win in 60/60 cases after zero to four deliberately wrong opening choices, within 15 turns.
 
 A deterministic sample of 12 Easy flights per policy produced:
 

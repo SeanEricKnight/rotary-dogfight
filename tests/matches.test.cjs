@@ -1,6 +1,6 @@
 const assert=require('assert'),{loadGame}=require('./harness.cjs');
 let games=0,turns=0;
-for(const craft of ['lark','kestrel','swift'])for(const skill of ['regular','veteran'])for(const combat of ['classic','quality'])for(const mission of ['duel','first','escape']){
+for(const craft of ['lark','kestrel','swift'])for(const skill of ['regular','veteran'])for(const combat of ['classic','quality'])for(const mission of ['duel','first','escape','breakout']){
  const h=loadGame(),{t,Core,elements}=h;elements.get('aircraft').value=craft;elements.get('rivalAircraft').value=craft==='swift'?'lark':'swift';elements.get('skill').value=skill;elements.get('combatRules').value=combat;elements.get('mission').value=mission;t.reset();
  let picker=1234567+games;
  while(!t.get().over){const state=t.get(),choices=t.moves.filter(m=>t.legal(state.p,m));assert(choices.length);assert(t.legal(state.e,state.enemyMove),'Rival committed an illegal move');const r=Core.random(picker);picker=r.seed;t.setMove(choices[Math.floor(r.value*choices.length)]);t.fly();h.drain();assert(Core.validState(t.captureBattle()));assert(t.get().history.length<=40);turns++;}

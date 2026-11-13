@@ -74,7 +74,7 @@ Claude's suggestions:
 5. Claude identifies a possible replay-portability risk: recordings compare floating-point values as JSON strings while the engine uses trigonometric functions. It suggests rounding positions in canonicalState before recordings are shared, which would require a rules-version change. This is a hypothesis to verify across engines.
 6. Move AI, scenario setup, and scoring out of the UI script into a DOM-free module to make them easier to test and port.
 
-Claude’s proposed next step was to do items 1–3 and the synchronization fix, then start playtesting. **No items in this review have been approved or implemented.**
+Claude’s proposed next step was to do items 1–3 and the synchronization fix, then start playtesting. At that point, none of the proposals had been approved or implemented; later approvals and changes are recorded below.
 
 
 ## Selective follow-up
@@ -86,3 +86,20 @@ After the original review was recorded, Sean authorized applying recommendations
 - Synchronized the embedded browser engine from the standalone engine to remove the documented header mismatch.
 
 No balance or mission changes based only on bot simulations were made. The other suggestions remain proposals for human playtesting.
+
+## Approved gameplay follow-up (November 13, 2026)
+
+Sean approved three changes after a separate comparison with *Ace Patrol*, *Wings of Glory*, and *Scramble: Battle of Britain*. Implemented for the next build:
+
+- Open new flights on the tactical map and label the selected path, following-turn options, and rival firing direction. The rival's committed move remains hidden.
+- Expand the optional practice flight into five short goal-based exercises, adding leading a turning target and evading a rival firing line.
+- Replace the selectable eight-turn Break Contact rule with a new `breakout` objective: reach the marked map lane while at least 250 m from the pursuer. Keep the old `escape` objective behavior for v10 saves and recordings.
+
+The rules version and save slot advance to 11 so old recordings and saves remain readable. These changes are recorded in the project, not tuned from bot balance results. Browser and iPhone playtests are still needed; the HTML remains the fast test/play build and the native iPhone choice remains open.
+
+
+### External design references checked
+
+- [Sid Meier’s Ace Patrol (publisher listing)](https://store.steampowered.com/app/244070/Sid_Meiers_Ace_Patrol/) describes its campaign mission ladder and pilots learning new skills.
+- [Wings of Glory rules (Ares Games)](https://www.aresgames.eu/download/20961/) layers Basic, Standard, and Advanced rules, then offers scenarios and linked campaigns.
+- [Scramble: Battle of Britain Flight School (Slitherine)](https://www.slitherine.com/news/scramble-battle-of-britain-flight-school-episode-2) describes predicted paths, firing aids, a whole-sky tactical view, and turn review.
