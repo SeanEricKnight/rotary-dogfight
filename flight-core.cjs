@@ -2,7 +2,7 @@
    No code or assets from Fly Casual or Plane Tactics are included. */
 (function(root,factory){const core=factory();if(typeof module==='object'&&module.exports)module.exports=core;else root.CanvasAcesCore=core;})(globalThis,function(){
 'use strict';
-const version=8,R=Math.PI/180;
+const version=10,R=Math.PI/180;
 const clamp=(x,a,b)=>Math.max(a,Math.min(b,x));
 const norm=x=>Math.atan2(Math.sin(x),Math.cos(x));
 const clone=x=>JSON.parse(JSON.stringify(x));
@@ -65,17 +65,17 @@ function solution(a,b,combat='classic'){
 }
 function random(seed){let x=seed>>>0;if(!x)x=0x6d2b79f5;x^=x<<13;x^=x>>>17;x^=x<<5;return {seed:x>>>0,value:(x>>>0)/4294967296};}
 function fire(a,b,combat,seed,immune=false){const info=solution(a,b,combat),rolls=[];let rolled=0;if(info.fired){if(combat==='quality'){for(let i=0;i<info.potential;i++){const next=random(seed);seed=next.seed;rolls.push(next.value);if(next.value<info.accuracy)rolled++;}}else rolled=info.potential;}return {...info,rolls,rolled,damage:immune?0:rolled,seed};}
-function verdictFor(p,e,stats,mission,round){if(p.hp===0&&e.hp===0)return 'draw';if(p.hp===0)return 'loss';if(e.hp===0)return 'win';if(mission==='first'){if(stats.dealt>=3&&stats.taken>=3)return 'draw';if(stats.dealt>=3)return 'win';if(stats.taken>=3)return 'loss';}if(mission==='escape'&&round>=8)return 'win';if(round>=40||p.ammo===0&&e.ammo===0)return 'draw';return null;}
-function canonicalState(s){return {p:normalisePlane(s.p),e:normalisePlane(s.e),round:s.round,seed:s.seed>>>0,flight:s.flight,combat:s.combat,mission:s.mission,stats:{dealt:s.stats.dealt,taken:s.stats.taken,bursts:s.stats.bursts,tailTurns:s.stats.tailTurns},cheats:{assisted:s.cheats.assisted,god:s.cheats.god,reveal:s.cheats.reveal},over:!!s.over,verdict:s.verdict||null};}
-function validState(s){const structural=!!s&&validPlane(s.p)&&validPlane(s.e)&&Number.isInteger(s.round)&&s.round>=1&&s.round<=40&&Number.isInteger(s.seed)&&s.seed>0&&s.seed<=4294967295&&['classic','momentum'].includes(s.flight)&&['classic','quality'].includes(s.combat)&&['duel','first','escape'].includes(s.mission)&&s.stats&&['dealt','taken','bursts','tailTurns'].every(k=>Number.isInteger(s.stats[k])&&s.stats[k]>=0&&s.stats[k]<=120)&&s.cheats&&['assisted','god','reveal'].every(k=>typeof s.cheats[k]==='boolean')&&(!(s.cheats.god||s.cheats.reveal)||s.cheats.assisted)&&typeof s.over==='boolean'&&[null,'win','loss','draw'].includes(s.verdict)&&s.over===!!s.verdict;if(!structural)return false;return verdictFor(s.p,s.e,s.stats,s.mission,s.over?s.round:s.round-1)===s.verdict;}
+function verdictFor(p,e,stats,mission,round){if(p.hp===0&&e.hp===0)return 'draw';if(p.hp===0)return 'loss';if(e.hp===0)return 'win';if(mission==='easy'&&stats.bursts>=3)return 'win';if(mission==='first'){if(stats.dealt>=3&&stats.taken>=3)return 'draw';if(stats.dealt>=3)return 'win';if(stats.taken>=3)return 'loss';}if(mission==='escape'&&round>=8)return 'win';if(round>=40||p.ammo===0&&e.ammo===0)return 'draw';return null;}
+function canonicalState(s){return {p:normalisePlane(s.p),e:normalisePlane(s.e),round:s.round,seed:s.seed>>>0,flight:s.flight,combat:s.combat,mission:s.mission,assist:!!s.assist,training:!!s.assist&&s.training!==false,stats:{dealt:s.stats.dealt,taken:s.stats.taken,bursts:s.stats.bursts,tailTurns:s.stats.tailTurns},cheats:{assisted:s.cheats.assisted,god:s.cheats.god,reveal:s.cheats.reveal},over:!!s.over,verdict:s.verdict||null};}
+function validState(s){const structural=!!s&&validPlane(s.p)&&validPlane(s.e)&&Number.isInteger(s.round)&&s.round>=1&&s.round<=40&&Number.isInteger(s.seed)&&s.seed>0&&s.seed<=4294967295&&['classic','momentum'].includes(s.flight)&&['classic','quality'].includes(s.combat)&&['duel','first','escape','easy'].includes(s.mission)&&(s.assist===undefined||typeof s.assist==='boolean')&&(s.training===undefined||typeof s.training==='boolean')&&(!s.assist||(s.mission===(s.training===false?'duel':'easy')&&s.flight==='classic'&&s.combat==='classic'&&s.p.alt===1&&s.e.alt===1))&&(s.mission!=='easy'||s.assist===true)&&s.stats&&['dealt','taken','bursts','tailTurns'].every(k=>Number.isInteger(s.stats[k])&&s.stats[k]>=0&&s.stats[k]<=120)&&s.cheats&&['assisted','god','reveal'].every(k=>typeof s.cheats[k]==='boolean')&&(!(s.cheats.god||s.cheats.reveal)||s.cheats.assisted)&&typeof s.over==='boolean'&&[null,'win','loss','draw'].includes(s.verdict)&&s.over===!!s.verdict;if(!structural)return false;return verdictFor(s.p,s.e,s.stats,s.mission,s.over?s.round:s.round-1)===s.verdict;}
 function resolveTurn(state,command){
  if(!validState(state))throw new Error('Invalid flight state');
  if(state.over)throw new Error('This sortie has ended');
  if(!command||command.version!==1||command.type!=='resolve-turn'||command.turn!==state.round||typeof command.playerMove!=='string'||typeof command.enemyMove!=='string')throw new Error('Command does not belong to this turn');
- const pm=getMove(command.playerMove),em=getMove(command.enemyMove);
+ const pm=getMove(command.playerMove),em=getMove(command.enemyMove);if(state.assist&&(!(state.training===false?['left','cruise','right','hardleft','hardright','boost']:['left','cruise','right','hardleft','hardright']).includes(command.playerMove)||!(state.training===false?['left','cruise','right','hardleft','hardright','boost']:['left','cruise','right']).includes(command.enemyMove)))throw new Error('Easy uses Left, Straight, or Right');
  if(!pm||!em||restriction(state.p,pm,state.flight)||restriction(state.e,em,state.flight))throw new Error('Illegal maneuver');
  const p=move(state.p,pm,state.flight),e=move(state.e,em,state.flight);
- const playerShot=fire(p,e,state.combat,state.seed),enemyShot=fire(e,p,state.combat,playerShot.seed,state.cheats.god);
+ const playerShot=fire(p,e,state.combat,state.seed),enemyShot=fire(e,p,state.combat,playerShot.seed,state.cheats.god);if(state.assist){p.energy=6;p.alt=1;e.alt=1;e.energy=state.training===false?6:1;if(state.round%(state.training===false?2:4)!==0){enemyShot.fired=false;enemyShot.damage=0;enemyShot.rolled=0;enemyShot.reason='Rival is lining up'}else{enemyShot.damage=Math.min(1,enemyShot.damage);enemyShot.rolled=Math.min(1,enemyShot.rolled)}}
  if(playerShot.fired)p.ammo--;if(enemyShot.fired)e.ammo--;
  p.hp=Math.max(0,p.hp-enemyShot.damage);e.hp=Math.max(0,e.hp-playerShot.damage);
  const own=relative(p,e),foe=relative(e,p),tail=Math.abs(own.angle)<35*R&&Math.abs(foe.angle)>145*R;
@@ -88,7 +88,7 @@ function applyTestCode(state,code){if(!validState(state)||state.over)throw new E
 function sameState(a,b){const clean=s=>{const q=canonicalState(s);for(const key of ['p','e']){const z=q[key];q[key]={x:z.x,y:z.y,h:z.h,alt:z.alt,energy:z.energy,hp:z.hp,ammo:z.ammo,craft:z.craft,bank:z.bank,throttle:z.throttle};}return q;};return JSON.stringify(clean(a))===JSON.stringify(clean(b));}
 function validateLog(log){
  try{
-  if(!log||log.format!=='canvas-aces-replay'||log.version!==1||log.rulesVersion!==version||!validState(log.initial)||!Array.isArray(log.events)||log.events.length>500)return {ok:false,reason:'Unsupported or invalid recording'};
+  if(!log||log.format!=='canvas-aces-replay'||log.version!==1||![8,9,version].includes(log.rulesVersion)||(log.rulesVersion===8&&log.initial&&log.initial.assist)||(log.rulesVersion===9&&log.initial&&log.initial.assist&&log.initial.training===false)||!validState(log.initial)||!Array.isArray(log.events)||log.events.length>500)return {ok:false,reason:'Unsupported or invalid recording'};
   let state=clone(canonicalState(log.initial));const frames=[];
   for(const event of log.events){
    if(!event||!validState(event.after))throw new Error('Invalid recorded state');

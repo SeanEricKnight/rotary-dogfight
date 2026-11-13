@@ -1,8 +1,8 @@
 {
   "name": "canvas-aces",
-  "version": "0.8.0",
+  "version": "0.10.0",
   "private": true,
-  "description": "Canvas Aces: independent flight engine, aircraft, momentum and full-flight recordings",
+  "description": "Canvas Aces: guided Intro and a reactive Easy duel with three-button controls",
   "scripts": {
     "test": "node tests/run.cjs",
     "sync:core": "node tools/embed-core.cjs"

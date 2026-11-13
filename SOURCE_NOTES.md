@@ -1,6 +1,6 @@
 # Sources and reuse boundaries
 
-This release was implemented independently in JavaScript, extending the original Canvas Aces prototype. No source code, artwork, fonts, models, music, scenes, prefabs, or networking libraries from the two supplied reference projects are bundled.
+This build was implemented independently in JavaScript, extending the original Canvas Aces prototype. No source code, artwork, fonts, models, music, scenes, prefabs, or networking libraries from the two supplied reference projects are bundled.
 
 ## Plane Tactics reference
 
@@ -21,3 +21,12 @@ Earlier UI work considered simultaneous maneuver planning in Wings of Glory and 
 ## Original graphics and engine
 
 Graphics are drawn by the existing Canvas Aces Canvas renderer and inline vector paths. The engine's numeric aircraft characteristics are invented game parameters. No historical flight-performance accuracy is claimed.
+
+
+## Earlier simple mode
+
+The new Easy mode, camera, scripted opponent, and suggestion logic were independently written for Canvas Aces. No additional reference-project code or assets were incorporated. Normal and Hard retain the prior advanced systems.
+
+## Current simple modes
+
+Intro preserves the independently written learning fight. Easy's reactive opponent, optional bearing hints, automatic gap closing, and four-tier interface were written for this build. No additional external code or assets were integrated.
