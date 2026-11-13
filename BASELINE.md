@@ -1,4 +1,4 @@
-# Canvas Aces — Version 1
+# Canvas Aces source source snapshot
 
 - Version: 1.
 - Snapshot date: November 13, 2026.
