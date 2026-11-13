@@ -1,0 +1,12 @@
+{
+  "name": "canvas-aces",
+  "version": "0.7.0",
+  "private": true,
+  "description": "Canvas Aces browser game, version 1",
+  "scripts": {
+    "test": "node tests/check-game.cjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
