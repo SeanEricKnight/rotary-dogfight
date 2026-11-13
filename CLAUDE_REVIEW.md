@@ -75,3 +75,14 @@ Claude's suggestions:
 6. Move AI, scenario setup, and scoring out of the UI script into a DOM-free module to make them easier to test and port.
 
 Claude’s proposed next step was to do items 1–3 and the synchronization fix, then start playtesting. **No items in this review have been approved or implemented.**
+
+
+## Selective follow-up
+
+After the original review was recorded, Sean authorized applying recommendations that checked out. The changes in the follow-up commit:
+
+- Added a small human playtest guide with a consistent first-round setup and debrief questions. This is a manual worksheet, not an in-game survey or automatic recording bundle.
+- Clarified in the rules help that energy affects movement distance and that aim alignment does not alter damage in Fixed gunnery.
+- Synchronized the embedded browser engine from the standalone engine to remove the documented header mismatch.
+
+No balance or mission changes based only on bot simulations were made. The other suggestions remain proposals for human playtesting.

@@ -55,6 +55,10 @@ For local Chrome testing, use the standalone `Canvas-Aces.html` file or the ZIP'
 
 Official instructions: [file uploads](https://docs.github.com/en/repositories/working-with-files/managing-files/adding-a-file-to-a-repository) and [Pages publishing](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site).
 
+## Human playtesting
+
+Use [PLAYTEST_GUIDE.md](PLAYTEST_GUIDE.md) to run a small, consistent first round before adding trading, upgrades, or other large systems.
+
 ## Development
 
 ```sh
@@ -70,6 +74,7 @@ Requires Node.js 20 or newer. There are no package dependencies and no `npm inst
 | `flight-core.cjs` | The same independently written rules engine, usable from Node without a DOM |
 | `tools/embed-core.cjs` | Copies changes in the standalone engine into the offline HTML |
 | `tests/` | Engine, UI-state, opponent, recording, migration, and synchronization checks |
+| `PLAYTEST_GUIDE.md` | A consistent first round of human playtests |
 | `SOURCE_NOTES.md` | Reuse boundaries and reference-project treatment |
 | `PROTOCOL.md` | Command/log design and future multiplayer considerations |
 | `BASELINE.md` | Previous game snapshot and validation notes |
