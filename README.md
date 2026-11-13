@@ -4,7 +4,7 @@ A single-player dogfighting prototype for fast playtesting in Chrome or another 
 
 ## Play
 
-Extract the ZIP and double-click **index.html**. No installation, build step, package download, or account is needed. Start with **Practice flight** or **How to play**.
+For quick Chrome testing, download [Canvas-Aces.html](Canvas-Aces.html) and open it in Chrome. Or download the repository ZIP, extract it, and open **index.html**. No installation, build step, package download, or account is needed. Start with **Practice flight** or **How to play**.
 
 Choose Easy, Normal, or Hard, then **Start flight**. Aircraft, rules, objective, and encounter choices in **Choose your next flight** apply when you start a new sortie.
 
@@ -51,7 +51,7 @@ Assisted sorties earn no career credit. Cheats and resulting state changes are i
 
 ## GitHub and browser testing
 
-Open `index.html` directly in Chrome for local testing. If GitHub Pages is enabled, use the repository's Pages URL for a shareable browser build. Pages deployment serves the same root HTML file; no build service is required.
+For local Chrome testing, use the standalone `Canvas-Aces.html` file or the ZIP's root `index.html`. If GitHub Pages is enabled, its site serves the same game for shareable browser testing. No build service is required.
 
 Official instructions: [file uploads](https://docs.github.com/en/repositories/working-with-files/managing-files/adding-a-file-to-a-repository) and [Pages publishing](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site).
 
@@ -91,4 +91,4 @@ Automated checks cover 36 engine profile/rule/objective combinations and 54 comp
 
 The tests use a simulated DOM and Canvas API; they do not prove full browser layout or physical iPhone compatibility. Full browser and real-device testing, balance, and fun still need human playtests.
 
-This release remains a solo prototype. The command engine and recordings are a foundation for future two-device play; hosting, matchmaking, authoritative hidden choices, and network synchronization are not implemented. Trading and upgrades remain future prototype layers. No native platform decision has been made.
+This is a solo prototype. The command engine and recordings are a foundation for future two-device play; hosting, matchmaking, authoritative hidden choices, and network synchronization are not implemented. Trading and upgrades remain future prototype layers. No native platform decision has been made.
