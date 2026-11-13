@@ -1,10 +1,11 @@
 {
   "name": "canvas-aces",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "private": true,
-  "description": "Canvas Aces browser game in development",
+  "description": "Canvas Aces: independent flight engine, aircraft, momentum and full-flight recordings",
   "scripts": {
-    "test": "node tests/check-game.cjs"
+    "test": "node tests/run.cjs",
+    "sync:core": "node tools/embed-core.cjs"
   },
   "engines": {
     "node": ">=20"
