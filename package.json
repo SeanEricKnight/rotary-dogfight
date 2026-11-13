@@ -2,7 +2,7 @@
   "name": "canvas-aces",
   "version": "0.11.0",
   "private": true,
-  "description": "Canvas Aces: guided Intro, a five-step flight school, and an exit-lane objective",
+  "description": "Rotary Dogfight: tactical air combat for browser playtesting, with a platform-independent rules engine",
   "scripts": {
     "test": "node tests/run.cjs",
     "sync:core": "node tools/embed-core.cjs"
