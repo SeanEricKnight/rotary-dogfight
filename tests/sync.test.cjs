@@ -5,6 +5,7 @@ assert(core);assert.equal(core[1].trim(),fs.readFileSync(path.join(root,'flight-
 assert(!/<(?:script|link|img)[^>]+(?:src|href)="https?:/i.test(html));
 assert(!/^\+/m.test(html.match(/<style>([\s\S]*?)<\/style>/)[1]),'Stray patch marker in CSS');
 assert.equal(html,fs.readFileSync(path.join(root,'Canvas-Aces.html'),'utf8'),'HTML entry points differ');
+assert(/<div class=\"flight\"><section class=\"flightHead\" aria-label=\"Flight status and map\">/.test(html),'Pinned header must retain its named flight region');
 assert.equal(html.match(/<script id="easy-pilot">([\s\S]*?)<\/script>/)[1].trim(),fs.readFileSync(path.join(root,'easy-pilot.cjs'),'utf8').trim());
 assert(!/<option[^>]*hidden/.test(html),'Legacy options must be removed, not hidden');
 const options=id=>[...html.match(new RegExp('<select id="'+id+'">([\\s\\S]*?)<\\/select>'))[1].matchAll(/<option value="([^"]+)">([^<]+)<\/option>/g)];
