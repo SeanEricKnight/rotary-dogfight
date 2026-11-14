@@ -1,4 +1,6 @@
-# Claude review: Canvas Aces prototype
+# Earlier Claude review of the prototype
+
+Historical review: this records earlier findings and quoted names; it is not a statement that every finding remains current. See `EASY_AI_VALIDATION.md` for the Easy-policy revision and current evidence.
 
 **Date:** November 13, 2026  
 **Source:** Claude  

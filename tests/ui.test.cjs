@@ -18,6 +18,7 @@ async function main(){
  // Start a clean sortie with aircraft/rule selections; the pending move is fixed until resolution.
  elements.get('aircraft').value='swift';elements.get('rivalAircraft').value='lark';elements.get('combatRules').value='quality';elements.get('level-hard').onclick();elements.get('startLevel').onclick();assert.equal(t.get().p.craft,'swift');assert.equal(t.get().e.craft,'lark');assert.equal(t.get().combatRules,'quality');assert(!t.get().cheatState.assisted);
  for(let i=0;i<6&&!t.get().over;i++){t.setMove(Core.getMove('cruise'));t.fly();h.drain();assert(Core.validateLog(t.get().matchLog).ok)}
+ // Synthetic v7-shaped parser fixture only; genuine old-engine coverage is in compatibility.test.cjs.
  t.save();const newState=t.captureBattle();const legacy=JSON.parse(storage.get('canvas-aces-flight-v11'));legacy.v=7;delete legacy.flightRules;delete legacy.combatRules;delete legacy.rngSeed;delete legacy.aiSeed;delete legacy.matchLog;for(const q of [legacy.p,legacy.e]){delete q.craft;delete q.bank;delete q.throttle;}legacy.lastResult=null;assert(t.restore(legacy));assert.equal(t.get().flightRules,'classic');assert.equal(t.get().combatRules,'classic');assert.equal(t.get().p.craft,'kestrel');assert.equal(t.get().p.hp,newState.p.hp);
  console.log('PASS UI: aircraft and rules, visible tactical preview, next-turn limits, hidden-choice/RNG stability, deterministic recording, full replay and import isolation, cheat logs, saves, legacy migration, and five flight-school goals.');
 }
