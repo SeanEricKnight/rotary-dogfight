@@ -1,7 +1,7 @@
 /* Rotary Dogfight's solo Easy policies. Not part of the replay rules. */
 (function(root,factory){
  if(typeof module==='object'&&module.exports)module.exports=factory(require('./flight-core.cjs'));
- else root.RotaryEasyPilot=factory(root.CanvasAcesCore);
+ else root.RotaryEasyPilot=factory(root.RotaryDogfightCore);
 })(globalThis,function(Core){
  'use strict';
  const R=Math.PI/180,ids=['left','cruise','right','hardleft','hardright','boost'];

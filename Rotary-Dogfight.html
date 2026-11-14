@@ -39,9 +39,9 @@ dialog{background:#f8f6ed;color:#244449;color-scheme:light;border:1px solid #9da
 <dialog id="cheats" aria-labelledby="cheatTitle"><div class="helpHead"><div class="eyebrow">SOLO TEST CONSOLE</div><h2 id="cheatTitle">A little unfair advantage.</h2><p>Cheat-assisted flights do not count toward career totals, stars, or best scores.</p></div><div class="helpPanel"><label for="cheatCode">Enter a code</label><div class="cheatEntry"><input id="cheatCode" autocomplete="off" autocapitalize="none" spellcheck="false" placeholder="repair, energy, ammo, god, reveal, win"><button id="cheatApply">Apply</button></div><p id="cheatMessage" role="status">Use a code below. Changes affect this solo sortie only.</p><div class="cheatCodes"><button data-code="repair" id="code-repair">Repair hull</button><button data-code="energy" id="code-energy">Refill energy</button><button data-code="ammo" id="code-ammo">Refill ammo</button><button data-code="god" id="code-god">Toggle invulnerability</button><button data-code="reveal" id="code-reveal">Reveal rival’s move</button><button data-code="win" id="code-win">Instant victory</button></div></div><div class="helpFoot"><button id="cheatClose">Back to the flight</button></div></dialog>
 <dialog id="recorder" aria-labelledby="recorderTitle"><div class="helpHead"><div class="eyebrow">FLIGHT RECORDER · READ-ONLY PLAYBACK</div><h2 id="recorderTitle">Watch the whole fight.</h2><p>Completed turns only. Your rival’s pending move is never exported.</p></div><div class="helpPanel"><p id="recordMessage" role="status">No completed turns yet.</p><label for="recordTurn">Choose a completed turn</label><select id="recordTurn"></select><div class="recorderActions"><button id="playTurn">Watch selected turn</button><button id="playRecording">Watch whole flight</button></div><div class="recordTransfer"><button id="recordExport">Download this flight log</button><label class="fileLabel">Open a flight log<input id="recordImport" type="file" accept=".json,application/json"></label></div><p class="recordNote">Imported files are checked against the flight engine and played without changing your active sortie, saved progress, or career. This checks consistency, not who created the file. Hosting and two-device synchronization are separate work.</p></div><div class="helpFoot"><button id="recordClose">Return to my flight</button></div></dialog>
 <script id="flight-core">
-/* Canvas Aces flight engine, independently written.
+/* Rotary Dogfight flight engine, independently written.
    No code or assets from Fly Casual or Plane Tactics are included. */
-(function(root,factory){const core=factory();if(typeof module==='object'&&module.exports)module.exports=core;else root.CanvasAcesCore=core;})(globalThis,function(){
+(function(root,factory){const core=factory();if(typeof module==='object'&&module.exports)module.exports=core;else root.RotaryDogfightCore=core;})(globalThis,function(){
 'use strict';
 const version=11,R=Math.PI/180;
 const breakoutZone=Object.freeze({minX:-180,maxX:180,minY:-700,maxY:-520,minSeparation:250});
@@ -161,7 +161,7 @@ return Object.freeze({version,profiles,moves,getMove,hasProfile,normalisePlane,v
 /* Rotary Dogfight's solo Easy policies. Not part of the replay rules. */
 (function(root,factory){
  if(typeof module==='object'&&module.exports)module.exports=factory(require('./flight-core.cjs'));
- else root.RotaryEasyPilot=factory(root.CanvasAcesCore);
+ else root.RotaryEasyPilot=factory(root.RotaryDogfightCore);
 })(globalThis,function(Core){
  'use strict';
  const R=Math.PI/180,ids=['left','cruise','right','hardleft','hardright','boost'];
@@ -224,7 +224,7 @@ return Object.freeze({version,profiles,moves,getMove,hasProfile,normalisePlane,v
 const $=id=>document.getElementById(id),c=$('canvas'),g=c.getContext('2d'),R=Math.PI/180,T=Math.PI*2;
 const norm=a=>Math.atan2(Math.sin(a),Math.cos(a)),clamp=(n,a,b)=>Math.max(a,Math.min(b,n));
 const levels=['LOW','MID','HIGH'];
-const Core=globalThis.CanvasAcesCore,EasyPilot=globalThis.RotaryEasyPilot;
+const Core=globalThis.RotaryDogfightCore,EasyPilot=globalThis.RotaryEasyPilot;
 const moves=Core.moves,profiles=Core.profiles;
 let p,e,round,selected,enemyMove,busy=false,over=false,map=true,sound=false,anim=null,audio,wins=0,flash=0,hits=[0,0];
 let activeScenario='merge',lookBack=false,lastOutcome=null,replayShotUntil=0;

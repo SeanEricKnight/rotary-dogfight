@@ -1,6 +1,6 @@
-/* Canvas Aces flight engine, independently written.
+/* Rotary Dogfight flight engine, independently written.
    No code or assets from Fly Casual or Plane Tactics are included. */
-(function(root,factory){const core=factory();if(typeof module==='object'&&module.exports)module.exports=core;else root.CanvasAcesCore=core;})(globalThis,function(){
+(function(root,factory){const core=factory();if(typeof module==='object'&&module.exports)module.exports=core;else root.RotaryDogfightCore=core;})(globalThis,function(){
 'use strict';
 const version=11,R=Math.PI/180;
 const breakoutZone=Object.freeze({minX:-180,maxX:180,minY:-700,maxY:-520,minSeparation:250});

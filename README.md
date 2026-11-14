@@ -6,7 +6,7 @@ This is an independent tribute to Alfred Leonardi and Douglas Kaufmann, the crea
 
 ## Play
 
-For quick Chrome testing, download [the standalone game](Canvas-Aces.html) and open it in Chrome. Or download and extract the repository ZIP, then open **index.html**. There is no install, build step, account, or timer.
+For quick Chrome testing, download [the standalone game](Rotary-Dogfight.html) and open it in Chrome. Or download and extract the repository ZIP, then open **index.html**. There is no install, build step, account, or timer.
 
 | Level | Controls | Challenge |
 | --- | --- | --- |
@@ -41,7 +41,7 @@ Browser save/origin limits still apply. A local file and a hosted site may have 
 
 ## Browser testing
 
-Open the standalone `Canvas-Aces.html` or root `index.html` locally in Chrome. For a shareable browser link, GitHub Pages serves the root `index.html` from the repository branch and root folder; no build step is required.
+Open the standalone `Rotary-Dogfight.html` or root `index.html` locally in Chrome. For a shareable link, a workflow publishes the game to GitHub Pages on every push to `main`: **https://seanericknight.github.io/rotary-dogfight/** (saved games stay in each player's own browser).
 
 ## Solo cheats
 
