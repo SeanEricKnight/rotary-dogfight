@@ -1,11 +1,13 @@
 {
-  "name": "canvas-aces",
+  "name": "rotary-dogfight",
   "version": "0.11.0",
   "private": true,
   "description": "Rotary Dogfight: tactical air combat for browser playtesting, with a platform-independent rules engine",
   "scripts": {
     "test": "node tests/run.cjs",
-    "sync:core": "node tools/embed-core.cjs"
+    "sync:core": "node tools/embed-core.cjs",
+    "sim:easy": "node tools/simulate-easy.cjs",
+    "checksums": "node tools/checksums.cjs"
   },
   "engines": {
     "node": ">=20"

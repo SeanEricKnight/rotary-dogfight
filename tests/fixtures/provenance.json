@@ -1,0 +1,19 @@
+{
+  "source": "Preserved historical releases already available in this conversation, not the working base; no Git-history access is claimed.",
+  "engines": {
+    "8": "65019f4071d2142589a7829088d7f1e798eff26fa9bf21e067d5099d6f867f07",
+    "10": "101db779c77df365cf1224dbe0332bd31f77bcc1ff9d39d44d1246f14b378617"
+  },
+  "files": {
+    "recordings-v10.json": "b33a39b748a6b5c560a0d42a2ee881f4918e3ed9ad4f7e07412be63a77be6f0e",
+    "recordings-v8.json": "a45f4435aaae11eb00a29dc87a8a0c917404b279f79a49c7c452cab5d59934f2",
+    "save-v10-easy.json": "73cae44a10389d6cfb1c3956424c616435ccaf2a6913e3285e7c70a3fcb63b27",
+    "save-v10-intro.json": "c6e7d93d8f25fd2bb00a629d52dac5dd2bb07e8082192f114621a275eb30d257",
+    "save-v10-normal.json": "92d397947e9cc08f2ab39c68aebe2fa61ded38330fc53c237bb8b9514a202616",
+    "save-v8-escape.json": "ba0503846631b673cf6677a08fa2dd47bdef9c75faa8c4337cbcaefa2acc3120"
+  },
+  "historicalUiSha256": {
+    "8": "813cc568e7459e00c5b58b12431a36fd02e630f1678a373124a71d9d075002be",
+    "10": "fc5731aeb391ed1515ba5d5523794424a60fab2d40c571e33a12c1e804dc6401"
+  }
+}
