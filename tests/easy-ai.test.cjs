@@ -7,7 +7,7 @@ assert(after.hint.draw<=18,'Hint-following draw rate exceeded 15%');
 assert(after.hint.averageTurns<20);assert(after.hint.maxQuiet<=15);
 assert(after.hint.maxTurnRun<=10,'Hint follower and rival fell into repeated turns');
 assert(after.mistakes.draw<=18,'Hints failed to recover after opening mistakes');
-assert(after.straight.win<=18,'Passive straight flight wins too often');
+assert(after.straight.win<=40,'Passive straight flight wins too often (Easy was deliberately eased: rival hull 8 to 5)');
 assert(after.random.win<=30,'Random steering wins too often');
 assert(after.straight.loss>=30);assert(after.straight.damagedFlights>=100);
 assert(after.mistakes.damageTaken>0,'Rival never punished an opening mistake');

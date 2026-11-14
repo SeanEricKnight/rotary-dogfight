@@ -3,7 +3,7 @@ const Core=require('../flight-core.cjs'),Pilot=require('../easy-pilot.cjs');
 function simulate(n,policy='hint',pilot=Pilot){
  const seed=12345+n*1237;let aiSeed=seed,choiceSeed=234+n;
  const plane=v=>Core.normalisePlane({x:0,y:150,h:0,alt:1,energy:6,hp:10,ammo:12,craft:'kestrel',...v});
- let state=Core.canonicalState({p:plane(),e:plane({x:[45,-45,75][n%3],y:-190,h:Math.PI,hp:8,craft:'swift'}),round:1,seed,flight:'classic',combat:'classic',mission:'duel',assist:true,training:false,stats:{dealt:0,taken:0,bursts:0,tailTurns:0},cheats:{assisted:false,god:false,reveal:false},over:false,verdict:null});
+ let state=Core.canonicalState({p:plane(),e:plane({x:[45,-45,75][n%3],y:-190,h:Math.PI,hp:5,craft:'swift'}),round:1,seed,flight:'classic',combat:'classic',mission:'duel',assist:true,training:false,stats:{dealt:0,taken:0,bursts:0,tailTurns:0},cheats:{assisted:false,god:false,reveal:false},over:false,verdict:null});
  const log={format:'canvas-aces-replay',version:1,rulesVersion:Core.version,initial:state,events:[]};
  const random=()=>{const r=Core.random(aiSeed);aiSeed=r.seed;return r.value};
  let maxQuiet=0,maxTurnRun=0,turnRun=0,lastTurn=null,extensions=0;

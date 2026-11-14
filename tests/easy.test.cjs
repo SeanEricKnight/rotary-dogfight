@@ -10,7 +10,7 @@ for(let n=0;n<60;n++){
  assert.equal(t.get().verdict,'win','Intro hint failed to recover from mistakes');assert(t.get().sortieStats.bursts>=3);wins++;maxTurns=Math.max(maxTurns,t.get().round);
 }
 const h=loadGame(),{t,elements,storage,Core}=h;
-assert(t.isEasy());assert(!t.isIntro());assert.equal(t.get().activeSkill,'cadet');assert.equal(t.get().mission,'duel');assert.equal(t.get().e.hp,8);assert.equal(t.get().p.hp,10);assert(!t.get().hintRequested);assert(!elements.get('hintButton').hidden);
+assert(t.isEasy());assert(!t.isIntro());assert.equal(t.get().activeSkill,'cadet');assert.equal(t.get().mission,'duel');assert.equal(t.get().e.hp,5);assert.equal(t.get().p.hp,10);assert(!t.get().hintRequested);assert(!elements.get('hintButton').hidden);
 const beforeSeed=t.captureBattle().seed,committed=t.get().enemyMove;t.easyHint();t.easyHint();elements.get('hintButton').onclick();assert(t.get().hintRequested);assert.equal(t.captureBattle().seed,beforeSeed);assert.strictEqual(t.get().enemyMove,committed);click(h,'cruise');assert(!t.get().hintRequested);
 // Easy is a full duel; three successful bursts do not end it while hull remains.
 const state=t.captureBattle();state.stats.bursts=3;assert.equal(Core.verdictFor(state.p,state.e,state.stats,'duel',3),null);

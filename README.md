@@ -11,7 +11,7 @@ For quick Chrome testing, download [the standalone game](Rotary-Dogfight.html) a
 | Level | Controls | Challenge |
 | --- | --- | --- |
 | Intro | Three direction buttons, automatic hints | Slow scripted rival; three successful bursts win |
-| Easy | Three direction buttons, hints on request | Reactive rival with 8 hull; bring it down while protecting your 10 hull |
+| Easy | Three direction buttons, hints on request | Reactive rival with 5 hull; bring it down while protecting your 10 hull |
 | Normal | Full maneuver selection, then Fly | Energy, altitude, aircraft choice, and tactical opponent |
 | Hard | Full maneuver selection, then Fly | Opponent also considers patterns and a following-turn response |
 
@@ -19,7 +19,7 @@ Choose Intro, Easy, Normal, or Hard, then press **Start flight**. Changing the l
 
 **In Intro and Easy, every direction tap flies a turn immediately.** Your plane points up on screen. Keep the red rival ahead; your guns fire automatically when lined up. Left and Right turn your plane. Straight keeps flying forward. Speed and altitude are automatic, and turns strengthen when the rival is behind. In Easy, Straight also closes a large gap automatically.
 
-Easy gives you an advantage: you have 10 hull against the rival's 8. The rival can attack only every second turn and deals at most one damage per attack. It chooses a move before your input, using your position rather than reading your selected button. Tap **Hint** for a suggested direction; it clears after your next move. Hint leads the rival using its last observed maneuver and a possible straight continuation; it never reads the rival's committed next move. If six turns pass without either plane dealing damage, the rival extends straight for up to three turns before re-engaging. This changes the solo pilot's decisions, not the combat rules.
+Easy gives you an advantage: you have 10 hull against the rival's 5. The rival can attack only every second turn and deals at most one damage per attack. It chooses a move before your input, using your position rather than reading your selected button. Tap **Hint** for a suggested direction; it clears after your next move. Hint leads the rival using its last observed maneuver and a possible straight continuation; it never reads the rival's committed next move. If six turns pass without either plane dealing damage, the rival extends straight for up to three turns before re-engaging. This changes the solo pilot's decisions, not the combat rules.
 
 Intro retains the slower scripted rival, automatic guidance, and three-burst goal. Its rival can attack only every fourth turn. Intro's guidance uses the scripted route to make learning forgiving.
 
